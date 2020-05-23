@@ -12,6 +12,7 @@
 -
 
 # data structure
- - ./csv : csv output folder
- - ./plot : plot image output folder
- - ./result : archive training info
+ - ./1. valueiter : value iter results files
+ - ./2. model_based_rl : model based results files
+ - ./3. q_learning sarsa : q and sarsa results  files
+ - ./4 e-greedy : e-greedy results files
