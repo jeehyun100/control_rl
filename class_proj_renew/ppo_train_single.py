@@ -45,21 +45,32 @@ def make_env( rank, seed=0):
 
 def train_ppo():
 
-    # env = Manipulator2D()
-    # env = Monitor(env, log_dir)
+    env = Manipulator2D()
+    env = Monitor(env, log_dir)
     # Custom MLP policy of two layers of size 32 each with tanh activation function
     #policy_kwargs = dict(act_fun=tf.nn.tanh, net_arch=[32, 32])
 
     # Create the agent
-    env = SubprocVecEnv([make_env( i) for i in range(8)])
-    env = VecMonitor(env, log_dir)
+    # env = SubprocVecEnv([make_env( i) for i in range(8)])
+    # env = VecMonitor(env, log_dir)
     #model = PPO2(MlpPolicy, env, verbose=1, policy_kwargs=policy_kwargs,)
-    #model = PPO2(MlpPolicy, env, verbose=1)
     model = PPO2(MlpPolicy, env, verbose=1, nminibatches=32, noptepochs = 10, ent_coef= 0.0)
     # Train the agent
     model.learn(total_timesteps=20000000, callback=callback)
     # Save the agent
     model.save("ppo2-mani14")
+    #
+    # n_timesteps: !!float
+    # 4e6
+    # policy: 'MlpPolicy'
+    # n_steps: 512
+    # nminibatches: 32
+    # lam: 0.95
+    # gamma: 0.99
+    # noptepochs: 10
+    # ent_coef: 0.0
+    # learning_rate: 2.5e-4
+    # cliprange: 0.2
 
 # del model
 # # the policy_kwargs are automatically loaded

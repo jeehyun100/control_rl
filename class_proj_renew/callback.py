@@ -14,11 +14,11 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
       It must contains the file created by the ``Monitor`` wrapper.
     :param verbose: (int)
     """
-    def __init__(self, check_freq, log_dir, verbose=1):
+    def __init__(self, check_freq, log_dir, verbose=1, save_name="model" ):
         super(SaveOnBestTrainingRewardCallback, self).__init__(verbose)
         self.check_freq = check_freq
         self.log_dir = log_dir
-        self.save_path = os.path.join(log_dir, 'ppo')
+        self.save_path = os.path.join(log_dir, save_name)
         self.best_mean_reward = -np.inf
 
     def _init_callback(self) -> None:

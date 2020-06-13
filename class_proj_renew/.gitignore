@@ -1,2 +1,11 @@
 ppo2-mani.zip
 ./tmp*
+*.pyc
+*.docx
+*.pdf
+class_proj_renew/tmp10/
+class_proj_renew/tmp11/
+class_proj_renew/tmp6/
+class_proj_renew/tmp7/
+class_proj_renew/tmp8/
+class_proj_renew/tmp9/
